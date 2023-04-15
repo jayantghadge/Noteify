@@ -1,13 +1,75 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins";
+  box-sizing: border-box;
+}
+.header {
+  @apply flex items-center justify-end py-4;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header h1 {
+  @apply mx-auto;
+}
+
+.light-mode {
+  @apply bg-[#E6E6FA];
+}
+.dark-mode {
+  @apply bg-[#1E1E1E];
+}
+
+.dark-mode h1 {
+  @apply text-yellow-300;
+}
+
+.notes-list {
+  @apply grid grid-cols-[repeat(auto-fit,minmax(230px,_1fr))] gap-4;
+}
+.note {
+  @apply flex min-h-[250px] flex-col place-content-between whitespace-pre-wrap rounded-lg  p-6;
+}
+
+.custom-footer {
+  @apply flex place-content-between items-center;
+}
+
+.note-new {
+  @apply bg-[#A3E4D7];
+}
+
+textarea {
+  @apply resize-none bg-[#A3E4D7];
+}
+
+textarea:focus {
+  @apply outline-none;
+}
+
+.save {
+  @apply rounded-full border-none bg-[#FDEDEC] px-4 py-1;
+}
+
+.save:hover {
+  @apply bg-slate-400 text-white;
+}
+
+.search {
+  @apply mx-auto mb-6 flex items-center rounded-lg bg-slate-300 p-3;
+}
+
+.search input {
+  @apply w-full bg-slate-300 indent-2 focus:outline-none;
+}
+
+.social-media-icons {
+  @apply ml-1 mr-4 mt-2 inline-block h-6 w-6;
+}
+
+.footer {
+  @apply mt-10 w-full border-t border-gray-200 bg-[#E6E6FA] pb-4 pt-4 text-center;
 }
