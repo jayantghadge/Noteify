@@ -71,5 +71,9 @@ textarea:focus {
 }
 
 .footer {
-  @apply mt-10 w-full border-t border-gray-200 bg-[#E6E6FA] pb-4 pt-4 text-center;
+  @apply mt-10 w-full pb-4 pt-4 text-center text-[#FDE047];
+}
+
+.light-mode .footer {
+  @apply text-slate-700;
 }
