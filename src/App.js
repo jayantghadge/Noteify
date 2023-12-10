@@ -10,7 +10,6 @@ const App = () => {
   const [notes, setNotes] = useState([]);
 
   const addNotes = (text) => {
-    // console.log(text);
     const date = new Date();
     const options = { day: "2-digit", month: "2-digit", year: "numeric" };
     const newNote = {
