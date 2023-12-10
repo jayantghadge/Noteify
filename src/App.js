@@ -7,28 +7,7 @@ import Search from "./components/SearchBar";
 import Footer from "./components/Footer";
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    // {
-    //   id: nanoid(),
-    //   text: "This my first Note!",
-    //   date: "15/03/2023",
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: "This my second Note!",
-    //   date: "17/03/2023",
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: "This my third Note!",
-    //   date: "02/04/2023",
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: "This my fourth Note!",
-    //   date: "08/04/2023",
-    // },
-  ]);
+  const [notes, setNotes] = useState([]);
 
   const addNotes = (text) => {
     // console.log(text);

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { TrashIcon } from "@heroicons/react/24/outline";
+import React, { useState, useRef } from "react";
+import { TrashIcon, DownloadIcon } from "@heroicons/react/24/outline";
+import html2canvas from "html2canvas";
 
 const Note = ({ id, text, date, handleDeleteNote }) => {
   const [color] = useState(getRandomColor());
+  const noteRef = useRef(null);
 
   function getRandomColor() {
     const hue = Math.floor(Math.random() * 360);
@@ -10,6 +12,48 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
     const lightness = Math.floor(Math.random() * 20) + 60;
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   }
+
+  //download note
+  const handleDownloadNoteAsImage = () => {
+    const element = noteRef.current;
+    const downloadButton = element.querySelector(".download-button");
+    const trashIcon = element.querySelector(".delete-icon");
+
+    downloadButton.innerText = "";
+    trashIcon.style.display = "none";
+
+    html2canvas(element).then((originalCanvas) => {
+      downloadButton.innerText = "Download";
+      trashIcon.style.display = "block";
+
+      const newCanvas = document.createElement("canvas");
+      newCanvas.width = originalCanvas.width;
+      newCanvas.height = originalCanvas.height + 20;
+
+      const ctx = newCanvas.getContext("2d");
+
+      // Draw the content of the original canvas
+      ctx.drawImage(
+        originalCanvas,
+        0,
+        0,
+        originalCanvas.width,
+        originalCanvas.height,
+        0,
+        0,
+        originalCanvas.width,
+        originalCanvas.height
+      );
+
+      const imgData = newCanvas.toDataURL("image/jpeg");
+
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = `note_${id}.jpg`;
+      link.click();
+    });
+  };
+
   return (
     <div
       className="note"
@@ -17,6 +61,7 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
         backgroundColor: color,
         boxShadow: `2px 2px 10px rgba(0, 0, 0, 0.3)`,
       }}
+      ref={noteRef}
     >
       <span>{text}</span>
       <footer className="custom-footer">
@@ -25,6 +70,9 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
           onClick={() => handleDeleteNote(id)}
           className="delete-icon h-6 w-6 cursor-pointer"
         />
+        <button onClick={handleDownloadNoteAsImage} className="download-button">
+          Download
+        </button>
       </footer>
     </div>
   );
