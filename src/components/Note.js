@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { TrashIcon, DownloadIcon } from "@heroicons/react/24/outline";
+import { TrashIcon, ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 import html2canvas from "html2canvas";
 
 const Note = ({ id, text, date, handleDeleteNote }) => {
@@ -16,14 +16,14 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
   //download note
   const handleDownloadNoteAsImage = () => {
     const element = noteRef.current;
-    const downloadButton = element.querySelector(".download-button");
     const trashIcon = element.querySelector(".delete-icon");
+    const downloadIcon = element.querySelector(".download-icon");
 
-    downloadButton.innerText = "";
+    downloadIcon.style.display = "none";
     trashIcon.style.display = "none";
 
     html2canvas(element).then((originalCanvas) => {
-      downloadButton.innerText = "Download";
+      downloadIcon.style.display = "block";
       trashIcon.style.display = "block";
 
       const newCanvas = document.createElement("canvas");
@@ -70,9 +70,10 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
           onClick={() => handleDeleteNote(id)}
           className="delete-icon h-6 w-6 cursor-pointer"
         />
-        <button onClick={handleDownloadNoteAsImage} className="download-button">
-          Download
-        </button>
+        <ArrowDownTrayIcon
+          onClick={handleDownloadNoteAsImage}
+          className="download-icon h-6 w-6 cursor-pointer"
+        />
       </footer>
     </div>
   );
