@@ -66,13 +66,13 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
       <span>{text}</span>
       <footer className="custom-footer">
         <p>{date}</p>
-        <TrashIcon
-          onClick={() => handleDeleteNote(id)}
-          className="delete-icon h-6 w-6 cursor-pointer"
-        />
         <ArrowDownTrayIcon
           onClick={handleDownloadNoteAsImage}
           className="download-icon h-6 w-6 cursor-pointer"
+        />
+        <TrashIcon
+          onClick={() => handleDeleteNote(id)}
+          className="delete-icon h-6 w-6 cursor-pointer"
         />
       </footer>
     </div>
