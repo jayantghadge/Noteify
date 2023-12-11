@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { TrashIcon, ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 import html2canvas from "html2canvas";
 
-const Note = ({ id, text, date, handleDeleteNote }) => {
+const Note = ({ id, text, date, time, handleDeleteNote }) => {
   const [color] = useState(getRandomColor());
   const noteRef = useRef(null);
 
@@ -13,7 +13,7 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   }
 
-  //download note
+  // download note
   const handleDownloadNoteAsImage = () => {
     const element = noteRef.current;
     const trashIcon = element.querySelector(".delete-icon");
@@ -64,16 +64,21 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
       ref={noteRef}
     >
       <span>{text}</span>
-      <footer className="custom-footer">
-        <p>{date}</p>
-        <ArrowDownTrayIcon
-          onClick={handleDownloadNoteAsImage}
-          className="download-icon h-6 w-6 cursor-pointer"
-        />
-        <TrashIcon
-          onClick={() => handleDeleteNote(id)}
-          className="delete-icon h-6 w-6 cursor-pointer"
-        />
+      <footer className="custom-footer flex w-full flex-col text-left">
+        <div>
+          <p>{time}</p>
+        </div>
+        <div className="flex items-center justify-between">
+          <p>{date}</p>
+          <ArrowDownTrayIcon
+            onClick={handleDownloadNoteAsImage}
+            className="download-icon h-6 w-6 cursor-pointer"
+          />
+          <TrashIcon
+            onClick={() => handleDeleteNote(id)}
+            className="delete-icon h-6 w-6 cursor-pointer"
+          />
+        </div>
       </footer>
     </div>
   );
