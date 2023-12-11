@@ -1,6 +1,6 @@
 # Noteify
 
-Noteify is a notes web application built using React and Tailwind CSS. It offers a fast and efficient way to create, search and delete notes, with a clean and minimalistic user interface.
+Noteify is a notes web application built using React and Tailwind CSS. It offers a fast and efficient way to create, search, delete and download notes, with a clean and minimalistic user interface.
 Noteify utilizes local storage to automatically save notes, ensuring that user data is never lost even when exiting or refreshing the browser.
 
 
@@ -41,6 +41,7 @@ To search for a note, simply type in the search bar located at the top of the no
 - Delete notes
 - Automatic saving of notes in local storage
 - Clean and modern user interface
+- Download notes in JPG format
 
 ## Links
 - Live Site URL: https://noteify-jayantghadge.vercel.app
