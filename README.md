@@ -43,8 +43,6 @@ To search for a note, simply type in the search bar located at the top of the no
 - Clean and modern user interface
 - Download notes in JPG format
 
-## Links
-- Live Site URL: https://noteify-jayantghadge.vercel.app
 ## Contributing
 
 If you're interested in contributing to Noteify, we welcome any bug reports, feature requests, or pull requests. To contribute:
