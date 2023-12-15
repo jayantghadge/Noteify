@@ -35,7 +35,7 @@
 }
 
 .custom-footer {
-  @apply flex place-content-between items-center;
+  @apply flex place-content-between;
 }
 
 .note-new {
@@ -71,7 +71,7 @@ textarea:focus {
 }
 
 .footer {
-  @apply mt-10 w-full pb-4 pt-4 text-center text-[#FDE047];
+  @apply mt-10 w-full pb-4 pt-4 text-[#FDE047];
 }
 
 .light-mode .footer {

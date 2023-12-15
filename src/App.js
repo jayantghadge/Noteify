@@ -12,10 +12,13 @@ const App = () => {
   const addNotes = (text) => {
     const date = new Date();
     const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+    const timeOptions = { hour: "2-digit", minute: "2-digit" };
+
     const newNote = {
       id: nanoid(),
       text: text,
       date: date.toLocaleDateString("en-GB", options),
+      time: date.toLocaleTimeString("en-US", timeOptions),
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
