@@ -48,9 +48,9 @@ To search for a note, simply type in the search bar located at the top of the no
 If you're interested in contributing to Noteify, we welcome any bug reports, feature requests, or pull requests. To contribute:
 
 1. Fork the repository
-2. Create a new branch for your changes: `git checkout -b my-new-feature`
+2. Create a new branch for your changes: `git checkout -b your-new-feature`
 3. Make your changes and commit them: `git commit -am 'Add some feature'`
-4. Push your changes to your fork: `git push origin my-new-feature`
+4. Push your changes to your fork: `git push origin your-new-feature`
 5. Submit a pull request to the `main` branch of the original repository
 
 ## Languages and Tools
